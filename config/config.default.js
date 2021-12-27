@@ -32,6 +32,7 @@ module.exports = appInfo => {
   }
 
   // cors跨域
+  // 前台的跨域问题的解决
   config.security = {
     csrf: {
       enable: false
@@ -42,6 +43,32 @@ module.exports = appInfo => {
     origin: '*',
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
   };
+  // 这个配置文件报跨域问题
+  // config.security = {
+  //   csrf:{
+  //     enable: false
+  //   },
+  //   domainWhiteList:['http://127.0.0.1:3001','http://127.0.0.1:3000','http://127.0.0.1:7001']
+  // }
+
+  // config.cors = {
+  //   // origin: '*',
+  //   credentials: true,  //允许Cook可以跨域
+  //   allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
+  // };
+  // 这个配置文件报404
+  // config.security = {
+  //   csrf:{
+  //     enable: false
+  //   },
+  //   domainWhiteList:['http://127.0.0.1:3001','http://127.0.0.1:3000','http://127.0.0.1:7001']
+  // }
+  // config.cors = {
+  //   origin: ctx => ctx.get('origin'),
+  //   credentials: true,  //允许Cook可以跨域
+  //   withCredentials: true,
+  //   allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
+  // };
 
   // add your user config here
   const userConfig = {
