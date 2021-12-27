@@ -12,6 +12,8 @@ class MainController extends Controller{
         const {ctx} = this
         let password = ctx.request.body.password
         let username = ctx.request.body.username
+
+
         console.log('username',username,'  password',password)
         // sql存在注入的问题
         let sql = `select userName  from  admin_user where username='${username}' and password = '${password}'`

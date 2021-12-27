@@ -33,22 +33,23 @@ module.exports = appInfo => {
 
   // cors跨域
   // 前台的跨域问题的解决
-  config.security = {
-    csrf: {
-      enable: false
-    },
-    domainWhiteList: ['*']
-  };
-  config.cors = {
-    origin: '*',
-    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
-  };
+  // config.security = {
+  //   csrf: {
+  //     enable: false
+  //   },
+  //   domainWhiteList: ['*']
+  // };
+  // config.cors = {
+  //   origin: '*',
+  //   allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
+  // };
   // 这个配置文件报跨域问题
   // config.security = {
   //   csrf:{
   //     enable: false
   //   },
   //   domainWhiteList:['http://127.0.0.1:3001','http://127.0.0.1:3000','http://127.0.0.1:7001']
+  //   // domainWhiteList: [ '*' ]
   // }
 
   // config.cors = {
@@ -56,6 +57,26 @@ module.exports = appInfo => {
   //   credentials: true,  //允许Cook可以跨域
   //   allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
   // };
+  // p33 解决问题的方法
+  config.security = {
+    csrf: {
+      enable: false,
+    },
+    domainWhiteList: [
+      'http://localhost:3000',
+      'http://localhost:3001',
+      'http://127.0.0.1:3000',
+      'http://127.0.0.1:3001',
+    ],
+  }
+
+  config.cors = {
+    // origin: 'http://localhost:3000',
+    credentials: true, // 允许Cook可以跨域
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
+  }
+
+
   // 这个配置文件报404
   // config.security = {
   //   csrf:{

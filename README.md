@@ -65,3 +65,11 @@
 ## windows 下数据库服务启动不起来
     1. 搜索服务找到mysql5.7
     2. 手动进行启动服务，之后就能解决了。但是要启动mysql5.7的服务，而不是mysql服务
+
+
+## 解决axios跨域问题 碰到的令人崩溃的问题
+    1. axios 跨域问题的localhost和127.0.0.1 是有区别的
+    2. 配置了domianWhiteList之后，如果依旧配置了orign，那么orign会覆盖whitlist
+    3. 在controller中的router进行配置的时候，一定要注意找的是post还是get请求，如果post请求用get进行接收，那么即使解决了跨域问题，也依旧会报404 not found。
+    4. 仔细很重要，特别是基础也很重要 nodejs
+    5. 阮一峰 cors跨域问题解析 http://www.ruanyifeng.com/blog/2016/04/cors.html
