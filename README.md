@@ -73,3 +73,8 @@
     3. 在controller中的router进行配置的时候，一定要注意找的是post还是get请求，如果post请求用get进行接收，那么即使解决了跨域问题，也依旧会报404 not found。
     4. 仔细很重要，特别是基础也很重要 nodejs
     5. 阮一峰 cors跨域问题解析 http://www.ruanyifeng.com/blog/2016/04/cors.html
+
+
+## 发布博客的后端中，addArticle路径下的session中openId进行验证的时候一直会报错 没有登录，是因为在中间件adminsuth中获取不到正确的session.openId
+    1. 主要是后台src下的config下的apiUrl的 url localhost 和 127.0.0.1 存储session的区别
+    2. localhost 和 127.0.0.1 地址是不同的，存储session的时候放在不同的地方

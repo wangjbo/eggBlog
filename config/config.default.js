@@ -76,6 +76,14 @@ module.exports = appInfo => {
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
   }
 
+  // session的配置
+  exports.session = {
+    key: 'EGG_SESS',  //eggjs默认session的key
+    maxAge: 1 * 3600 * 1000,  // 1 day
+    httpOnly: true,
+    encrypt: true,
+    renew: true  //每次访问页面都会给session会话延长时间
+  };
 
   // 这个配置文件报404
   // config.security = {
